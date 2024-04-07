@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
-import { database } from "../lib/appwrite";
+import { useNavigate } from "react-router-dom";
 import { FcApproval } from "react-icons/fc";
 import { FcMultipleDevices } from "react-icons/fc";
 import { FcRules } from "react-icons/fc";
@@ -17,11 +16,11 @@ const Mentors = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, userId, 
     setFilteredMentors(mentorsList);
   }, [mentorsList])
 
-  const handleChatClick = (mentorId) => {
-    setRecipientUserId(mentorId);
+  // const handleChatClick = (mentorId) => {
+  //   setRecipientUserId(mentorId);
 
-    // navigate('/chats');
-  }
+  //   // navigate('/chats');
+  // }
 
   const handleProfileClick = (mentorId) => {
     setMentorUserId(mentorId);

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 
-const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, setProfilePicture, setProfilePictureExist, profilePictureExist, getProfilePicture, userName, setUserName, userId, setUserId, getAccount }) => {
+const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExist, getProfilePicture, userName, setUserName, userId, getAccount }) => {
   const navigate = useNavigate();
   const [mentorBio, setMentorBio] = useState('');
   const [days, setDays] = useState([]);
@@ -20,7 +20,7 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, setProfilePicture,
     getAccount();
     getUserData();
     getProfilePicture();
-  }, [])
+  })
 
   const interests = [
     { label: "Software Development", value: "Software Development" },
@@ -223,7 +223,7 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, setProfilePicture,
                 </h6>
                 <div className="w-full mx-auto my-7 lg:w-6/12 px-4">
                   <div className="relative w-full mb-5">
-                    <img className="m-auto rounded-full mb-2 w-28 h-28" src={profilePictureExist ? profilePicture : "https://via.placeholder.com/80x80"} alt="Profile Picture" />
+                    <img className="m-auto rounded-full mb-2 w-28 h-28" src={profilePictureExist ? profilePicture : "https://via.placeholder.com/80x80"} alt="Profile" />
                     {profilePictureExist ? null : <input type="file" accept=".jpg, .png, .jpeg" onChange={(e) => handleSetProfilePicture(e)} className="border-0 p-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring m-auto block ease-linear transition-all duration-150" />}
                   </div>
                 </div>

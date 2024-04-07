@@ -1,6 +1,6 @@
 import Login from "./components/Login";
 import Signup from "./components/Singup";
-import { Route, Routes, useNavigate, useParams } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Profile from "./components/Profile";
 import Account from "./components/Account";

@@ -1,6 +1,4 @@
-// import Link from "next/link";
 import { FaRegHeart, FaTwitter, FaYoutube } from "react-icons/fa";
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { ImLinkedin } from "react-icons/im";
 import { FaRocket } from "react-icons/fa6";
 import { BsStars } from "react-icons/bs";
@@ -8,7 +6,7 @@ import { GiSandsOfTime } from "react-icons/gi";
 import { FcVideoCall } from "react-icons/fc";
 
 import Header from "./Header";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { database, storage } from "../lib/appwrite";
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -34,7 +32,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, profileP
       }
     );
 
-  }, [navigate, mentorUserId])
+  }, [navigate, mentorUserId, userName])
 
   return (
     <>

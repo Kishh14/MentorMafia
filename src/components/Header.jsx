@@ -23,7 +23,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, profilePicture, user
       setIsLoggedIn(false)
       console.error("Error checking session:", error);
     }
-  }, [isLoggedIn])
+  }, [isLoggedIn, setIsLoggedIn])
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

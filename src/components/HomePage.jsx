@@ -1,6 +1,5 @@
 import Header from "./Header";
 import Hero from "./Hero";
-import { useState } from "react";
 
 const Home = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, profilePictureExist, mentorsList, setMentorUserId }) => {
 
