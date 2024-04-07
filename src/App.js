@@ -251,18 +251,6 @@ function App() {
         }
       />
       <Route
-        path="/chats"
-        element={
-          <ChatWindow
-            recipientUserId={recipientUserId}
-            setRecipientUserId={setRecipientUserId}
-            profilePicture={profilePicture}
-            profilePictureExist={profilePictureExist}
-            userName={userName}
-          />
-        }
-      ></Route>
-      <Route
         path="/room/:roomId"
         element={
           <Room
