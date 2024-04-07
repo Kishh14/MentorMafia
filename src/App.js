@@ -155,7 +155,7 @@ function App() {
     getAccount();
     getUsersList();
     getNotification();
-  }, [userName, getNotification, getUsersList, getAccount, getProfilePicture]);
+  }, [userName, getNotification]);
 
   return (
     <Routes>
