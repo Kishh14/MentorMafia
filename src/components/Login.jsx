@@ -9,7 +9,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName }) => {
   const [userPassword, setUserPassword] = useState('');
 
   const handleLogin = () => {
-    const promise = account.createEmailPasswordSession(userEmail, userPassword);
+    const promise = account.createEmailSession(userEmail, userPassword);
 
     promise.then(
       function (response) {
