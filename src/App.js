@@ -7,7 +7,6 @@ import Account from "./components/Account";
 import { useEffect, useState } from "react";
 import { account, database, storage } from "./lib/appwrite";
 import Mentors from "./components/Mentors";
-import ChatWindow from "./components/ChatWindow";
 import Room from "./components/Room";
 
 function App() {
@@ -21,10 +20,10 @@ function App() {
   const [recipientUserId, setRecipientUserId] = useState("");
   const [mentorUserId, setMentorUserId] = useState("");
   const [callRequestId, setCallRequestId] = useState(null);
-  const [showCallDialog, setShowCallDialog] = useState(false);
+  // const [showCallDialog, setShowCallDialog] = useState(false);
 
   const navigate = useNavigate();
-  const { roomId } = useParams();
+  // const { roomId } = useParams();
 
   useEffect(() => {
     const filteredMentors = usersList.filter(
@@ -156,7 +155,7 @@ function App() {
     getAccount();
     getUsersList();
     getNotification();
-  }, []);
+  });
 
   return (
     <Routes>
