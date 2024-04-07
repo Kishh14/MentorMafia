@@ -20,7 +20,7 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, setUserNa
     promise.then(
       function (response) {
         alert(`You've Successfully Signed Up, ${userName}!🥳 Please proceed to login`);
-        navigate('/login');
+        navigate('/account');
       },
       function (error) {
         console.error(error)

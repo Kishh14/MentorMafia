@@ -32,7 +32,6 @@ const Footer = () => {
         </div>
         <div className="flex gap-8">
           <Link to={'/signup'}>Signup</Link>
-          <Link to={'/login'}>Login</Link>
         </div>
       </div>
     </footer>

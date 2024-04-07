@@ -49,7 +49,6 @@ export default function Header({ isLoggedIn, setIsLoggedIn, profilePicture, user
             <span>{userName}</span>
           </Link> :
           <div className="buttons-container hidden md:flex items-center gap-3">
-            <Link to={'/login'} className="text-base py-3">Login</Link>
             <Link to={'/signup'} className="bg-blue-700 text-white rounded py-2 px-7">Sign Up</Link>
           </div>}
       </nav>
@@ -68,7 +67,6 @@ export default function Header({ isLoggedIn, setIsLoggedIn, profilePicture, user
               <span>{userName}</span>
             </Link> :
             <div className="buttons-container flex items-center gap-3">
-              <Link to={'/login'} className="text-base py-3 w-5/5">Login</Link>
               <Link to={'/signup'} className="bg-blue-700 w-5/5 text-white rounded py-2 px-4">Sign Up</Link>
             </div>}
         </nav>
