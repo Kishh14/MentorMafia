@@ -23,7 +23,7 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, setUserNa
         navigate('/login');
       },
       function (error) {
-        console.error(error)
+        // console.error(error)
         alert("Error occured " + error)
       }
     )

@@ -155,7 +155,7 @@ function App() {
     getAccount();
     getUsersList();
     getNotification();
-  });
+  }, []);
 
   return (
     <Routes>
