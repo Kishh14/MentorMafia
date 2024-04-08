@@ -72,6 +72,7 @@ function App() {
       function (response) {
         setUserId(response.$id);
         setUserName(response.name);
+        setIsLoggedIn(true);
       },
       function (err) {
         console.error(err);
@@ -155,11 +156,7 @@ function App() {
     getAccount();
     getUsersList();
     getNotification();
-<<<<<<< HEAD
   }, []);
-=======
-  }, [userName]);
->>>>>>> a876e4cb96321ef5a5ba73ed1e52939e68f85738
 
   return (
     <Routes>
