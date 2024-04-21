@@ -16,15 +16,14 @@ const Signup = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, setUserNa
       userPassword,
       userName,
     )
-
     promise.then(
       function (response) {
         alert(`You've Successfully Signed Up, ${userName}!🥳 Please proceed to login`);
         setIsLoggedIn(true);
-        navigate('/account');
+        navigate('/login');
       },
       function (error) {
-        // console.error(error)
+        console.error(error)
         alert("Error occured " + error)
       }
     )

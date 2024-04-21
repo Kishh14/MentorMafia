@@ -50,6 +50,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, profilePicture, user
           </Link> :
           <div className="buttons-container hidden md:flex items-center gap-3">
             <Link to={'/signup'} className="bg-blue-700 text-white rounded py-2 px-7">Sign Up</Link>
+            <Link to={'/login'} className="border border-blue-700 hover:bg-blue-700 duration-300 text-white rounded py-2 px-7">Login</Link>
           </div>}
       </nav>
 
@@ -68,6 +69,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, profilePicture, user
             </Link> :
             <div className="buttons-container flex items-center gap-3">
               <Link to={'/signup'} className="bg-blue-700 w-5/5 text-white rounded py-2 px-4">Sign Up</Link>
+              <Link to={'/login'} className="bg-blue-700 w-5/5 text-white rounded py-2 px-4">Login</Link>
             </div>}
         </nav>
       </aside>

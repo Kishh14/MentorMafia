@@ -20,7 +20,7 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExis
     getAccount();
     getUserData();
     getProfilePicture();
-  })
+  }, [getAccount, getProfilePicture])
 
   const interests = [
     { label: "Software Development", value: "Software Development" },
@@ -64,11 +64,11 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExis
             setEndTime(response.endTime)
           }, function (err) {
             setUserExist(false);
-            console.error(err);
+            // console.error(err);
           }
         )
       }, function (err) {
-        console.error(err)
+        // console.error(err)
       }
     )
   }
