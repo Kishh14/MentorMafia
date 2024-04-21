@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 
-const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExist, getProfilePicture, userName, setUserName, userId, getAccount }) => {
+const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, setProfilePicture, profilePictureExist, setProfilePictureExist, getProfilePicture, userName, setUserName, userId, getAccount }) => {
   const navigate = useNavigate();
   const [mentorBio, setMentorBio] = useState('');
   const [days, setDays] = useState([]);
@@ -16,11 +16,40 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExis
   const [userCountry, setUserCountry] = useState('');
   const [userExist, setUserExist] = useState(false);
 
+
+  // Not able to fetch the profile picture after loggin in
+  // useEffect(() => {
+  //   if (profilePictureExist) {
+  //     getProfilePicture();
+  //   }
+  // }, [profilePictureExist, getProfilePicture])
+
   useEffect(() => {
     getAccount();
     getUserData();
-    // getProfilePicture();
   }, [getAccount])
+
+  // Fetch profile picture
+  useEffect(() => {
+    const accountProm = account.get();
+    accountProm.then(
+      async function (response) {
+        const profilePictureProm = await storage.getFilePreview(
+          "660d64d1496e76a7e4aa",
+          response.$id
+        );
+        setProfilePicture(profilePictureProm);
+        fetch(profilePictureProm).then((r) => {
+          if (r.status !== 404) {
+            setProfilePictureExist(true);
+          } else {
+            setProfilePictureExist(false);
+          }
+        });
+      }, function (err) { }
+    )
+
+  }, [setProfilePicture, setProfilePictureExist])
 
   const interests = [
     { label: "Software Development", value: "Software Development" },
@@ -45,6 +74,7 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExis
     const accountProm = account.get();
     accountProm.then(
       function (response) {
+
         const promise = database.getDocument(
           '660cf234f3a008730036',
           '660cf2ad06380c29d762',
