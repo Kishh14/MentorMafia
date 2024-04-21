@@ -19,8 +19,8 @@ const Account = ({ isLoggedIn, setIsLoggedIn, profilePicture, profilePictureExis
   useEffect(() => {
     getAccount();
     getUserData();
-    getProfilePicture();
-  }, [getAccount, getProfilePicture])
+    // getProfilePicture();
+  }, [getAccount])
 
   const interests = [
     { label: "Software Development", value: "Software Development" },

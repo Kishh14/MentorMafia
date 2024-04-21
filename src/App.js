@@ -1,6 +1,6 @@
 import Login from "./components/Login";
 import Signup from "./components/Singup";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Profile from "./components/Profile";
 import Account from "./components/Account";
@@ -19,10 +19,10 @@ function App() {
   const [mentorsList, setMentorsList] = useState([]);
   const [recipientUserId, setRecipientUserId] = useState("");
   const [mentorUserId, setMentorUserId] = useState("");
-  const [callRequestId, setCallRequestId] = useState(null);
+  // const [callRequestId, setCallRequestId] = useState(null);
   // const [showCallDialog, setShowCallDialog] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const { roomId } = useParams();
 
   useEffect(() => {
@@ -98,67 +98,70 @@ function App() {
 
 
   useEffect(() => {
-    const getNotification = () => {
-      const accountProm = account.get();
-      accountProm.then(
-        function (accountResponse) {
-          setInterval(() => {
-            const dataProm = database.getDocument(
-              "660cf234f3a008730036",
-              "660cf2ad06380c29d762",
-              accountResponse.$id
-            );
-            dataProm.then(
-              function (response) {
-                let roomId2 = response.$id;
-                if (response.accountType === "Mentor") {
-                  if (response.callRequests) {
-                    setCallRequestId(response.callRequests);
-                    setTimeout(() => {
-                      if (
-                        window.confirm(`${callRequestId} is calling you, answer?`)
-                      ) {
-                        navigate(`/room/${roomId2}`);
-                        const deleteProm = database.updateDocument(
-                          "660cf234f3a008730036",
-                          "660cf2ad06380c29d762",
-                          accountResponse.$id,
-                          {
-                            callRequests: "",
-                          }
-                        );
-                        deleteProm.then(
-                          function (deleteRespo) {
-                            console.log(deleteRespo);
-                          },
-                          function (err) {
-                            // console.error(err);
-                          }
-                        );
-                      } else {
-                        alert("Call has been declined!");
-                      }
-                    }, 3000);
-                  }
-                }
-              },
-              function (err) {
-                // console.error(err);
-              }
-            );
-          }, 5000);
-        },
-        function (err) {
-          // console.error(err);
-        }
-      );
-    };
+    // let intervalId;
+    // const getNotification = () => {
+    //   const accountProm = account.get();
+    //   accountProm.then(
+    //     function (accountResponse) {
+    //       intervalId = setInterval(() => {
+    //         const dataProm = database.getDocument(
+    //           "660cf234f3a008730036",
+    //           "660cf2ad06380c29d762",
+    //           accountResponse.$id
+    //         );
+    //         dataProm.then(
+    //           function (response) {
+    //             let roomId2 = response.$id;
+    //             if (response.accountType === "Mentor") {
+    //               if (response.callRequests) {
+    //                 setCallRequestId(response.callRequests);
+    //                 setTimeout(() => {
+    //                   if (
+    //                     window.confirm(`${callRequestId} is calling you, answer?`)
+    //                   ) {
+    //                     navigate(`/room/${roomId2}`);
+    //                     const deleteProm = database.updateDocument(
+    //                       "660cf234f3a008730036",
+    //                       "660cf2ad06380c29d762",
+    //                       accountResponse.$id,
+    //                       {
+    //                         callRequests: "",
+    //                       }
+    //                     );
+    //                     deleteProm.then(
+    //                       function (deleteRespo) {
+    //                         console.log(deleteRespo);
+    //                       },
+    //                       function (err) {
+    //                         // console.error(err);
+    //                       }
+    //                     );
+    //                   } else {
+    //                     alert("Call has been declined!");
+    //                   }
+    //                 }, 3000);
+    //               }
+    //             }
+    //           },
+    //           function (err) {
+    //             // console.error(err);
+    //           }
+    //         );
+    //       }, 5000);
+    //     },
+    //     function (err) {
+    //       // console.error(err);
+    //     }
+    //   );
+    // };
 
     getProfilePicture();
     getAccount();
     getUsersList();
-    getNotification();
-  }, [navigate, callRequestId]);
+    // getNotification();
+
+    // return () => clearInterval(intervalId)
+  }, [setProfilePicture, setProfilePictureExist, setUserId, setUserName, setIsLoggedIn, setUsersList]);
 
   return (
     <Routes>
