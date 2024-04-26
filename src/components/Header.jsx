@@ -30,7 +30,7 @@ export default function Header({ isLoggedIn, setIsLoggedIn, profilePicture, user
   }
 
   return (
-    <header className="py-2 px-10">
+    <header className="py-2 px-6 lg:px-10">
       <nav className="flex justify-between items-center">
         <Link to={'/'} className="logo">
           <img src="/assets/logo/without-bg.png" alt='Logo' width={110} height={50} />

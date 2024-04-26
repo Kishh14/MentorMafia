@@ -47,17 +47,17 @@ const Hero = ({ isLoggedIn, mentorsList, setMentorUserId }) => {
 
 
   return (
-    <div className="hero-section px-48 pt-28 pb-14 bg-black text-white">
-      <div className="hero-1 flex justify-center items-center gap-8">
+    <div className="hero-section md:px-24 lg:px-48 pt-28 pb-14 bg-black text-white">
+      <div className="hero-1 flex md:flex-col lg:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-8">
         <div className="hero-1-text-content">
-          <h1 className="text-5xl font-bold mb-4">More Than Just Mentorship, A <br /> Thriving Community.</h1>
-          <div className="ratings mt-7 flex gap-4 items-center">
-            <img className="w-36" src={'https://assets-global.website-files.com/5d3ead70b1eba4033920a2bd/61a7c5ffe862e23e0a5dc735_4.9%20Stars.png'} alt="Ratings" />
+          <h1 className="md:text-4xl lg:text-5xl md:text-center lg:text-start font-bold mb-4">More Than Just Mentorship, A <br /> Thriving Community.</h1>
+          <div className="ratings mt-7 flex gap-4 items-center md:justify-center lg:justify-start">
+            <img className="w-36 md:w-40 lg:w-36" src={'https://assets-global.website-files.com/5d3ead70b1eba4033920a2bd/61a7c5ffe862e23e0a5dc735_4.9%20Stars.png'} alt="Ratings" />
             <span className="mt-2">4.92/5 Rating</span>
           </div>
-          {isLoggedIn ? <Link to={'/mentors'} className="bg-blue-700 text-white py-3 inline-block px-14 mt-7 rounded">Our Mentors</Link> : <Link to={'/signup'} className="bg-blue-700 text-white py-3 inline-block px-10 mt-7 rounded">Become a Member</Link>}
+          {isLoggedIn ? <Link to={'/mentors'} className="bg-blue-700 text-white py-3 inline-block px-14 mt-7 rounded md:block lg:inline-block md:w-3/6 lg:w-full md:mx-auto md:text-center">Our Mentors</Link> : <Link to={'/signup'} className="bg-blue-700 text-white py-3 inline-block px-10 mt-7 rounded md:block lg:inline md:w-3/6 lg:w-full md:mx-auto md:text-center">Become a Member</Link>}
         </div>
-        <img className="" style={{ width: '57%' }} src='/assets/header/hero-background-2.png' alt="People in Call" />
+        <img className="md:w-52" style={{ width: '57%' }} src='/assets/header/hero-background-2.png' alt="People in Call" />
       </div>
       <div className="hero-2 my-28">
         <div className="category-nav flex justify-center align-center gap-14">
@@ -86,7 +86,7 @@ const Hero = ({ isLoggedIn, mentorsList, setMentorUserId }) => {
             Healthcare Mentors
           </button>
         </div>
-        <div className="card-container flex align-center justify-between my-12">
+        <div className="card-container flex align-center justify-between md:gap-10 my-12">
           {filteredMentors.length > 0 ? filteredMentors.map((mentor) => {
             return (
               <div className="mentor-card bg-white bg-opacity-20 backdrop-blur-sm p-3 rounded-sm shadow-md max-w-xs min-h-64 block" key={mentor.$id}>
