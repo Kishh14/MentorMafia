@@ -186,6 +186,10 @@ footer {
     font-size: 13px !important;
   }
 
+  .hero-2 .card-container .mentor-card:nth-child(3){
+    display: none !important;
+  }
+
   .hero-2 .card-container .mentor-card button {
     padding: 0.2rem !important;
     font-size: 13px !important;

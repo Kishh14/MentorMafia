@@ -1,6 +1,6 @@
 Mentor Mafia: Connecting Mentees with the Right Mentors
 
-Mentor Mafia is a web application built using React, Appwrite, and ZegoCloud that empowers mentees to connect with experienced mentors for video-based guidance and upskilling. By fostering a collaborative learning environment, Mentor Mafia aims to bridge the gap between those seeking knowledge and those willing to share their expertise.
+Mentor Mafia is a web application built using React, Appwrite that empowers mentees to connect with experienced mentors for video-based guidance and upskilling. By fostering a collaborative learning environment, Mentor Mafia aims to bridge the gap between those seeking knowledge and those willing to share their expertise.
 
 Key Features:
 
@@ -12,8 +12,7 @@ Getting Started:
 
 Clone the Repository: Use Git to clone the Mentor Mafia repository locally.
 Install Dependencies: Run npm install or yarn install to install the required project dependencies.
-Configure Appwrite and ZegoCloud: Refer to the documentation for Appwrite and ZegoCloud to set up your accounts and integrate their SDKs with the project.
 Start the Development Server: Run npm start or yarn start to launch the application in development mode.
-Contributing:
 
-We welcome contributions to Mentor Mafia! Feel free to fork the repository, make changes, and submit pull requests.
+Contributing:
+I welcome contributions to Mentor Mafia! Feel free to fork the repository, make changes, and submit pull requests.

@@ -16,12 +16,6 @@ const Mentors = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, userId, 
     setFilteredMentors(mentorsList);
   }, [mentorsList])
 
-  // const handleChatClick = (mentorId) => {
-  //   setRecipientUserId(mentorId);
-
-  //   // navigate('/chats');
-  // }
-
   const handleProfileClick = (mentorId) => {
     setMentorUserId(mentorId);
     navigate('/profile');
@@ -58,33 +52,33 @@ const Mentors = ({ isLoggedIn, setIsLoggedIn, profilePicture, userName, userId, 
           <aside className="flex w-72 flex-col space-y-2 bg-gray-600 bg-opacity-40 backdrop-blur-md text-white border-r-2 border-gray-400 py-10 px-4" style={{ height: "100vh" }}
             x-show="asideOpen">
             <button className="flex items-center gap-3 space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600" onClick={() => handleNavClick("Top Mentors")}>
-              <span className="text-2xl"><FcApproval className="text-2xl m-auto" /></span>
-              <span>Top Mentors</span>
+              <span className="text-2xl"><FcApproval className="text-2xl md:text-xl lg:text-2xl m-auto" /></span>
+              <span className="md:text-md lg:text-lg">Top Mentors</span>
             </button>
 
             <button className="flex items-center gap-3 space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600" onClick={() => handleNavClick("Tech Mentors")}>
-              <span className="text-2xl"><FcMultipleDevices className="text-2xl m-auto" /></span>
-              <span>Tech Mentors</span>
+              <span className="text-2xl"><FcMultipleDevices className="text-2xl md:text-xl lg:text-2xl m-auto" /></span>
+              <span className="md:text-md lg:text-lg">Tech Mentors</span>
             </button>
 
             <button className="flex items-center gap-3 space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600" onClick={() => handleNavClick("Career Mentors")}>
-              <span className="text-2xl"><FcRules className="text-2xl m-auto" /></span>
-              <span>Career Mentors</span>
+              <span className="text-2xl"><FcRules className="text-2xl md:text-xl lg:text-2xl m-auto" /></span>
+              <span className="md:text-md lg:text-lg">Career Mentors</span>
             </button>
 
             <button className="flex items-center gap-3 space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600" onClick={() => handleNavClick("Business Mentors")}>
-              <span className="text-2xl"><FcBullish className="text-2xl m-auto" /></span>
-              <span>Business Mentors</span>
+              <span className="text-2xl"><FcBullish className="text-2xl md:text-xl lg:text-2xl m-auto" /></span>
+              <span className="md:text-md lg:text-lg">Business Mentors</span>
             </button>
 
             <button className="flex items-center gap-3 space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600" onClick={() => handleNavClick("Finance Mentors")}>
-              <span className="text-2xl"><FcCurrencyExchange className="text-2xl m-auto" /></span>
-              <span>Finance Mentors</span>
+              <span className="text-2xl"><FcCurrencyExchange className="text-2xl md:text-xl lg:text-2xl m-auto" /></span>
+              <span className="md:text-md lg:text-lg">Finance Mentors</span>
             </button>
 
             <button className="flex items-center gap-3 space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600" onClick={() => handleNavClick("Healthcare Mentors")}>
-              <span className="text-2xl"><FcDepartment className="text-2xl m-auto" /></span>
-              <span>Healthcare Mentors</span>
+              <span className="text-2xl"><FcDepartment className="text-2xl md:text-xl lg:text-2xl m-auto" /></span>
+              <span className="md:text-md lg:text-lg">Healthcare Mentors</span>
             </button>
           </aside>
 
