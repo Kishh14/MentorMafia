@@ -9,8 +9,8 @@ const Room = ({ mentorUserId, userId, userName, isLoggedIn, setIsLoggedIn, profi
   const myVideoCall = async (element) => {
     const userID = String(userId);
     const userName2 = userName;
-    const appId = 36177414;
-    const serverSecret = '2f4674cd928cb89c9a42a45cc84bf828';
+    const appId = 360370830;
+    const serverSecret = '37cba6d82b947ad538d2b4a44ed60b5f';
 
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appId, serverSecret, roomId, userID, userName2);
     const zCloud = ZegoUIKitPrebuilt.create(kitToken);
