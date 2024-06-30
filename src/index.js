@@ -5,14 +5,15 @@ import App from "./App";
 import Footer from './components/Footer'
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import ContextProvider from "./context/ContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    {/* <React.StrictMode> */}
-    <App />
-    <Footer/>
-    {/* </React.StrictMode> */}
+    <ContextProvider>
+      <App />
+      <Footer />
+    </ContextProvider>
   </BrowserRouter>
 );
 

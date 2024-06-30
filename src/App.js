@@ -4,26 +4,23 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Profile from "./components/Profile";
 import Account from "./components/Account";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { account, database, storage } from "./lib/appwrite";
 import Mentors from "./components/Mentors";
 import Room from "./components/Room";
+import Context from "./context/Context";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [userId, setUserId] = useState("");
-  const [profilePicture, setProfilePicture] = useState("");
-  const [profilePictureExist, setProfilePictureExist] = useState(false);
-  const [usersList, setUsersList] = useState([]);
-  const [mentorsList, setMentorsList] = useState([]);
-  const [recipientUserId, setRecipientUserId] = useState("");
-  const [mentorUserId, setMentorUserId] = useState("");
-  // const [callRequestId, setCallRequestId] = useState(null);
-  // const [showCallDialog, setShowCallDialog] = useState(false);
-
-  // const navigate = useNavigate();
-  // const { roomId } = useParams();
+  const {
+    setIsLoggedIn,
+    setUserName,
+    setUserId,
+    setProfilePicture,
+    setProfilePictureExist,
+    usersList,
+    setUsersList,
+    setMentorsList,
+  } = useContext(Context);
 
   useEffect(() => {
     const filteredMentors = usersList.filter(
@@ -95,181 +92,28 @@ function App() {
     );
   };
 
-
-
   useEffect(() => {
-    // let intervalId;
-    // const getNotification = () => {
-    //   const accountProm = account.get();
-    //   accountProm.then(
-    //     function (accountResponse) {
-    //       intervalId = setInterval(() => {
-    //         const dataProm = database.getDocument(
-    //           "660cf234f3a008730036",
-    //           "660cf2ad06380c29d762",
-    //           accountResponse.$id
-    //         );
-    //         dataProm.then(
-    //           function (response) {
-    //             let roomId2 = response.$id;
-    //             if (response.accountType === "Mentor") {
-    //               if (response.callRequests) {
-    //                 setCallRequestId(response.callRequests);
-    //                 setTimeout(() => {
-    //                   if (
-    //                     window.confirm(`${callRequestId} is calling you, answer?`)
-    //                   ) {
-    //                     navigate(`/room/${roomId2}`);
-    //                     const deleteProm = database.updateDocument(
-    //                       "660cf234f3a008730036",
-    //                       "660cf2ad06380c29d762",
-    //                       accountResponse.$id,
-    //                       {
-    //                         callRequests: "",
-    //                       }
-    //                     );
-    //                     deleteProm.then(
-    //                       function (deleteRespo) {
-    //                         console.log(deleteRespo);
-    //                       },
-    //                       function (err) {
-    //                         // console.error(err);
-    //                       }
-    //                     );
-    //                   } else {
-    //                     alert("Call has been declined!");
-    //                   }
-    //                 }, 3000);
-    //               }
-    //             }
-    //           },
-    //           function (err) {
-    //             // console.error(err);
-    //           }
-    //         );
-    //       }, 5000);
-    //     },
-    //     function (err) {
-    //       // console.error(err);
-    //     }
-    //   );
-    // };
-
     getProfilePicture();
     getAccount();
     getUsersList();
-    // getNotification();
-
-    // return () => clearInterval(intervalId)
-  }, [setProfilePicture, setProfilePictureExist, setUserId, setUserName, setIsLoggedIn, setUsersList]);
+  }, [
+    setProfilePicture,
+    setProfilePictureExist,
+    setUserId,
+    setUserName,
+    setIsLoggedIn,
+    setUsersList,
+  ]);
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <HomePage
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            profilePicture={profilePicture}
-            userName={userName}
-            profilePictureExist={profilePictureExist}
-            mentorsList={mentorsList}
-            setMentorUserId={setMentorUserId}
-          />
-        }
-      />
-      <Route
-        path="/signup"
-        element={
-          <Signup
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            profilePicture={profilePicture}
-            userName={userName}
-            setUserName={setUserName}
-            profilePictureExist={profilePictureExist}
-          />
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <Login
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            profilePicture={profilePicture}
-            userName={userName}
-          />
-        }
-      />
-      <Route
-        path="/profile"
-        element={
-          <Profile
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            profilePicture={profilePicture}
-            userName={userName}
-            profilePictureExist={profilePictureExist}
-            mentorUserId={mentorUserId}
-            setMentorUserId={setMentorUserId}
-            mentorsList={mentorsList}
-          />
-        }
-      />
-      <Route
-        path="/account"
-        element={
-          <Account
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            setProfilePicture={setProfilePicture}
-            profilePicture={profilePicture}
-            profilePictureExist={profilePictureExist}
-            setProfilePictureExist={setProfilePictureExist}
-            getProfilePicture={getProfilePicture}
-            userName={userName}
-            setUserName={setUserName}
-            userId={userId}
-            setUserId={setUserId}
-            getAccount={getAccount}
-          />
-        }
-      />
-      <Route
-        path="/mentors"
-        element={
-          <Mentors
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            profilePicture={profilePicture}
-            userName={userName}
-            usersList={usersList}
-            mentorsList={mentorsList}
-            profilePictureExist={profilePictureExist}
-            recipientUserId={recipientUserId}
-            setRecipientUserId={setRecipientUserId}
-            userId={userId}
-            mentorUserId={mentorUserId}
-            setMentorUserId={setMentorUserId}
-          />
-        }
-      />
-      <Route
-        path="/room/:roomId"
-        element={
-          <Room
-            mentorUserId={mentorUserId}
-            userId={userId}
-            userName={userName}
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            profilePicture={profilePicture}
-            profilePictureExist={profilePictureExist}
-          />
-        }
-      ></Route>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/account" element={<Account getAccount={getAccount} />} />
+      <Route path="/mentors" element={<Mentors />} />
+      <Route path="/room/:roomId" element={<Room />}></Route>
     </Routes>
   );
 }
